@@ -1,0 +1,25 @@
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+class findClosestNumber_Test{
+	
+	@Test
+	void testClosesetNumberPositive(){
+		var positiveCompute = new closestNumber();
+		positiveCompute.n = 5;
+		positiveCompute.x = 35;
+		int array[] = new int[]{12, 23, 54, 78, 98};
+		
+		assertEquals(23, positiveCompute.compute(array));
+	}
+  
+	@Test
+	void testClosesetNumberNegative(){
+		var negativeCompute = new closestNumber();
+		negativeCompute.n = 4;
+		negativeCompute.x = 100;
+		int array[] = new int[]{95, 64, 81, 112};
+		
+		assertNotEquals(112, negativeCompute.compute(array));
+	}
+}
