@@ -1,0 +1,54 @@
+import java.util.*;
+import java.io.*;
+
+public class findClosestNumber {
+    
+ private int n;
+ private int x;
+    
+public static void main(String[] args) {
+	    
+  closestNumber tc = new closestNumber();
+  int array[] = tc.getInput();
+  tc.compute(array);
+	}
+	
+	private int[] getUserInput(){
+    Scanner sc = new Scanner(System.in);
+    n = sc.nextInt();
+    int array[] = new int[n];
+    
+    for(int i=0;i<n;i++){
+        array[i] = sc.nextInt();
+    }
+    Arrays.sort(array);
+    x= sc.nextInt();
+    return array;
+	}
+	
+	private void printClosestNumber(int array[]){
+	    int i=0;
+	    
+	    if(x<array[0]){
+	        System.out.println(array[0]);
+	        return;
+	    }
+	    if(x>=array[n-1]){
+	        System.out.println(array[n-1]);
+	        return;
+	    }
+	    for(i=0;i<n-1;i++){
+	        if(x>=array[i] && x<array[i+1]){
+	            break;
+	        }
+	    }
+	    if(x==array[i]){
+	        System.out.println(array[i]);
+	    }else if((x-array[i])<=(array[i+1]-x)){
+	        System.out.println(array[i]);
+	    }else{
+	        System.out.println(array[i+1]);
+	    }
+	    return;
+    }
+}
